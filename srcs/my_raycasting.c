@@ -3,18 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirosuzu <hirosuzu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 08:00:07 by hirosuzu          #+#    #+#             */
-<<<<<<< HEAD:srcs/my_raycasting.c
-<<<<<<< HEAD
-/*   Updated: 2024/06/07 22:29:23 by hrinka           ###   ########.fr       */
-=======
-/*   Updated: 2024/06/07 22:59:21 by hirosuzu         ###   ########.fr       */
->>>>>>> 33d6673a38b56f1704268fa29d6b60cbc4892135
-=======
-/*   Updated: 2024/06/07 23:16:32 by hirosuzu         ###   ########.fr       */
->>>>>>> origin/main:my_raycasting.c
+/*   Updated: 2024/06/08 01:22:48 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,10 +171,7 @@ void	init_player(t_player *player, t_cub3d *data)
 	player->dir_y = sin(player->angle) + cos(player->angle);
 	player->plane_x = 0;
 	player->plane_y = 0.66;
-<<<<<<< HEAD:srcs/my_raycasting.c
-=======
 	data->player = *player;
->>>>>>> origin/main:my_raycasting.c
 }
 
 void init_ray(t_cub3d *data, t_ray *ray, int x) {
@@ -219,27 +208,6 @@ void	single_ray(t_cub3d *data, int x)
 	render_wall(data, &ray, x);
 }
 
-<<<<<<< HEAD:srcs/my_raycasting.c
-// void	print_world_map(t_cub3d *data, int **world_map)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	j = 0;
-// 	while (j < data->map.height_map)
-// 	{
-// 		i = 0;
-// 		while (i < data->map.width_map)
-// 		{
-// 			printf("%d", data->map.world_map[j][i]);
-// 			i++;
-// 		}
-// 		printf("\n");
-// 		j++;
-// 	}
-// }
-=======
 void	print_world_map(t_cub3d *data, int **world_map)
 {
 	int	i;
@@ -260,7 +228,6 @@ void	print_world_map(t_cub3d *data, int **world_map)
 		j++;
 	}
 }
->>>>>>> origin/main:my_raycasting.c
 
 void	raycasting(t_cub3d *data)
 {
