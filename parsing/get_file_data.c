@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 19:42:37 by hrinka            #+#    #+#             */
-/*   Updated: 2024/05/31 20:01:45 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 20:36:14 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	get_file_content(char *path, t_cub3d *data)
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Unexistant file, please check the path and file name again.\n");
+		ft_printf("Please check the path and file name.\n");
 		exit(1);
 	}
 	i = 0;

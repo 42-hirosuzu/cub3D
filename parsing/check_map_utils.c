@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 19:54:04 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/16 19:11:40 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 20:48:25 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	check_map(t_map *data)
 	{
 		if (is_map_line (data->map[i]) == 1)
 		{
-			printf ("Error on line %d: Map can only be composed of \
-				'01NSWE' and must not be empty.\n", i+1);
+			ft_printf ("Error on line %d: Map can only be composed of \
+				'01NSWE' and must not be empty.\n", (i + 1));
 			exit (1);
 		}
 		i++;
@@ -77,7 +77,6 @@ void	check_dimensions(t_map *data)
 	}
 	if (i > 100)
 		exit(1);
-	printf("====================================\n");
 	data->height_map = i;
 	data->width_map = highest;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirosuzu <hirosuzu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 08:00:07 by hirosuzu          #+#    #+#             */
-/*   Updated: 2024/06/13 23:31:53 by hirosuzu         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:53:01 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,15 @@ void	dda(t_cub3d *data, char **map)
 			data->ray.map_y += data->ray.step_y;
 			data->ray.side = 1;
 		}
-		if (data->ray.map_x <= 0 || data->ray.map_x >= data->map.width_map || data->ray.map_y <= 0 || data->ray.map_y >= data->map.height_map)
+		if (data->ray.map_x <= 0 || data->ray.map_x >= data->map.width_map \
+			|| data->ray.map_y <= 0 || data->ray.map_y >= data->map.height_map)
 		{
-            printf("Out of map bounds: map_x=%d, map_y=%d\n", data->ray.map_x, data->ray.map_y);
-            break;  // Break the loop if out of bounds
+			printf("Out of map bounds: map_x=%d, map_y=%d\n", \
+				data->ray.map_x, data->ray.map_y);
+			break ;
 		}
 		if (map[data->ray.map_y][data->ray.map_x] == '1')
-
-		{
 			data->ray.hit = 1;
-		}
 	}
 }
 
@@ -71,13 +70,15 @@ void	ray_dist(t_player *player, t_ray *ray)
 	{
 		if (ray->ray_dir_x == 0)
 			ray->ray_dir_x = 0.0001;
-		ray->wall_dist = (ray->map_x - player->pos_x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
+		ray->wall_dist = \
+		(ray->map_x - player->pos_x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
 	}
 	else
 	{
 		if (ray->ray_dir_y == 0)
 			ray->ray_dir_y = 0.0001;
-		ray->wall_dist = (ray->map_y - player->pos_y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
+		ray->wall_dist = \
+		(ray->map_y - player->pos_y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
 	}
 	if (ray->wall_dist <= 0)
 		ray->wall_dist = 0.1;
@@ -88,8 +89,6 @@ void	single_ray(t_cub3d *data, int x)
 	t_ray	ray;
 
 	init_ray(data, &ray, x);
-	// print_player(player); // debug
-	// print_ray(ray, player, x); // debug
 	ray_vec(&data->player, &data->ray);
 	dda(data, data->map.map);
 	ray_dist(&data->player, &data->ray);
@@ -101,8 +100,7 @@ void	raycasting(t_cub3d *data)
 	int	x;
 
 	x = 0;
-	printf("raycasting\n");
-	// print_player(&data->player);
+	print_player(&data->player);
 	init_player(&data->player, data);
 	while (x < WIDTH_WIN)
 	{

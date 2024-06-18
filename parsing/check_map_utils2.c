@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:00:40 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/01 18:02:04 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 20:48:32 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	check_valid_path(t_cub3d *game, int y, int x)
 		return ;
 	if (valid_cell_path(game, y, x))
 	{
-		printf("Map path isn't valid at [%d, %d]\n", y, x);
+		ft_printf("Map path isn't valid at [%d, %d]\n", y, x);
 		exit (1);
 	}
 	else if (game->map.tmp[y][x] == game->player.direction

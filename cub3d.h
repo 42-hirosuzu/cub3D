@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirosuzu <hirosuzu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:12:19 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/17 23:58:23 by hirosuzu         ###   ########.fr       */
+/*   Updated: 2024/06/18 22:07:17 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_player
 	double			dir_y;
 	double			plane_x;
 	double			plane_y;
+	double			new_x;
+	double			new_y;
 }					t_player;
 
 typedef struct s_map
@@ -73,10 +75,7 @@ typedef struct s_map
 	int				size_shape;
 	char			**map;
 	char			**tmp;
-	// float			px;
-	// float			py;
 	double			old_x;
-	// int				**world_map;
 }					t_map;
 
 typedef struct s_ray
@@ -109,37 +108,9 @@ typedef struct s_draw
 	int			tex_y;
 }				t_draw;
 
-// typedef struct s_render
-// {
-// 	float			number_rays;
-// 	float			distance_horz;
-// 	float			distance_vert;
-// 	float			dist;
-// 	float			hores_inters_x;
-// 	float			hores_inters_y;
-// 	float			vertcl_inters_x;
-// 	float			vertcl_inters_y;
-// 	float			next_hor_inters_x;
-// 	float			next_hor_inters_y;
-// 	float			next_ver_inters_x;
-// 	float			next_ver_inters_y;
-// 	float			step_hor_x;
-// 	float			step_hor_y;
-// 	float			step_ver_x;
-// 	float			step_ver_y;
-// 	float			steps;
-// 	float			increamentx;
-// 	float			increamenty;
-// 	int				texture_offset_x;
-// 	float			texture_offset_y;
-// 	int				wall_start;
-// 	float			present_texture;
-// }					t_render;
-
 typedef struct s_cub3d
 {
 	t_player		player;
-	// t_render		render;
 	t_ray			ray;
 	t_map			map;
 	t_textures		textures;
@@ -155,7 +126,6 @@ float				distance_between_points(float x1, float y1, float x2,
 						float y2);
 // void				draw_map(t_cub3d *data, int mode);
 void				draw_view_angle(t_cub3d *data);
-// void				check_ray_draw(t_cub3d *data, float ray_angle, int id_ray);
 void				ray_casting(t_cub3d *data, float ray_angle, int id_ray,
 						mlx_image_t *img);
 void				move_mouse(double xp, double yp, void *param);
@@ -231,8 +201,6 @@ void				render_wall(t_cub3d *data, t_ray *ray, int x);
 void				ray_dist(t_player *player, t_ray *ray);
 void				dda(t_cub3d *ray, char **map);
 void				ray_vec(t_player *player, t_ray *ray);
-// void				init_world_map(t_cub3d *data);
-// void				print_world_map(t_cub3d *data, int **world_map);
 void				print_map(char **map);
 uint32_t			get_texel_image(mlx_image_t *image,
 						uint32_t tex_x, uint32_t tex_y);
