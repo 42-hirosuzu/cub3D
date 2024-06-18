@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 19:24:22 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/16 19:47:50 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 20:18:48 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	validate_rgb_values(char **str)
 	{
 		if (str[i][0] == '\0')
 		{
-			printf("Please fix the RGB values, empty string found.\n");
+			ft_printf("Please fix the RGB values, empty string found.\n");
 			exit(1);
 		}
 		j = 0;
@@ -45,7 +45,7 @@ void	validate_rgb_values(char **str)
 		{
 			if (!ft_isdigit(str[i][j]) && str[i][j] != '\n')
 			{
-				printf("Please fix RGB values, invalid: %s\n", &str[i][j]);
+				ft_printf("Please fix RGB values, invalid: %s\n", &str[i][j]);
 				exit(1);
 			}
 			j++;
@@ -75,7 +75,7 @@ int	nb_rgb_elem(char **line)
 // 	values = ft_split(line, ',');
 // 	if (nb_rgb_elem(values) != 3)
 // 	{
-// 		printf("Error: Invalid number of RGB values\n");
+// 		ft_printf("Error: Invalid number of RGB values\n");
 // 		free_2dchar_array(values);
 // 		exit(1);
 // 	}

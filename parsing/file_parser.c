@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 19:45:49 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/07 23:50:06 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 20:48:51 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	parse_file_content(t_cub3d *data)
 	if (store_textures_path(data, ++i) == 0)
 	{
 		store_map(data, i);
-		printf("1\n");
+		ft_printf("1\n");
 		check_map(&(data->map));
-		printf("Map is valid.\n");
+		ft_printf("Map is valid.\n");
 	}
 	else
 	{
-		printf("Error, Textures needed weren't provided.\n");
+		ft_printf("Error, Textures needed weren't provided.\n");
 		exit(1);
 	}
 }

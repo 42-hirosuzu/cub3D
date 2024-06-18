@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirosuzu <hirosuzu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 01:45:58 by hirosuzu          #+#    #+#             */
-/*   Updated: 2024/06/13 03:49:43 by hirosuzu         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:46:27 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,12 @@ void	init_player(t_player *player, t_cub3d *data)
 {
 	float	angle;
 
-	// printf("init_player\n");
 	angle = to_rad(player->angle);
 	player->dir_x = cos((angle));
 	player->dir_y = sin((angle));
 	player->plane_x = -player->dir_y * 0.66;
 	player->plane_y = player->dir_x * 0.66;
 	data->player = *player;
-	// printf("data->map.px: %f\n", data->map.px);
-	// printf("player->dir_x: %f\n", player->dir_x);
-	// printf("player->dir_y: %f\n", player->dir_y);
-	// printf("player->angle: %f\n", player->angle);
-	// printf("angle: %f\n", angle);
 }
 
 void	init_ray(t_cub3d *data, t_ray *ray, int x)

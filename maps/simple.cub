@@ -1,0 +1,13 @@
+NO textures/north.png
+SO textures/south.png
+WE textures/east.png
+EA textures/west.png
+
+C 35,19,73
+F 15,6,40
+
+111111
+110001
+100N01
+100001
+111111

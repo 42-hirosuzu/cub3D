@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 20:10:39 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/07 21:54:46 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 20:48:03 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_comma(char *line)
 		{
 			if (*(line + 1) == ',')
 			{
-				printf("Invalid RGB value: consecutive commas.\n");
+				ft_printf("Invalid RGB value: consecutive commas.\n");
 				exit(1);
 			}
 			count++;
@@ -32,7 +32,7 @@ void	check_comma(char *line)
 	}
 	if (count != 2)
 	{
-		printf("Invalid RGB value: incorrect number of components.\n");
+		ft_printf("Invalid RGB value: incorrect number of components.\n");
 		exit(1);
 	}
 }
