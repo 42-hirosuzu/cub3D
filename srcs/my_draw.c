@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hirosuzu <hirosuzu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 02:04:16 by hirosuzu          #+#    #+#             */
-/*   Updated: 2024/06/18 22:22:40 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 22:46:55 by hirosuzu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,17 @@ void	init_draw(t_draw *draw, t_cub3d *data)
 	}
 }
 
-void	render_pixel(t_cub3d *data, t_draw draw, int tex_x, int x, int y)
+void	render_pixel(t_cub3d *data, t_draw draw, int x, int y)
 {
 	int			d;
+	int			tex_x;
 	int			tex_y;
 	uint32_t	color;
 
+	tex_x = (int)(draw.wall_x * (double)(draw.texture_img->width));
+	if ((data->ray.side == 0 && data->ray.ray_dir_x < 0) \
+		|| (data->ray.side == 1 && data->ray.ray_dir_y > 0))
+		tex_x = draw.texture_img->width - tex_x - 1;
 	d = y * 256 - HEIGHT_WIN * 128 + draw.line_height * 128;
 	tex_y = ((d * draw.texture_img->height) / draw.line_height) / 256;
 	color = get_texel_image(draw.texture_img, tex_x, tex_y);
@@ -70,23 +75,19 @@ void	render_pixel(t_cub3d *data, t_draw draw, int tex_x, int x, int y)
 void	render_wall(t_cub3d *data, t_ray *ray, int x)
 {
 	t_draw		draw;
-	int			tex_x;
 	int			y;
 
+	(void)ray;
 	init_draw(&draw, data);
 	if (!draw.texture_img)
 	{
 		ft_printf("Failed to get texture image\n");
 		return ;
 	}
-	tex_x = (int)(draw.wall_x * (double)(draw.texture_img->width));
-	if ((ray->side == 0 && ray->ray_dir_x < 0) \
-		|| (ray->side == 1 && ray->ray_dir_y > 0))
-		tex_x = draw.texture_img->width - tex_x - 1;
 	y = draw.draw_start;
 	while (y < draw.draw_end)
 	{
-		render_pixel(data, draw, tex_x, x, y);
+		render_pixel(data, draw, x, y);
 		y++;
 	}
 }
