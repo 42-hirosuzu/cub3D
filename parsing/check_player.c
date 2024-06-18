@@ -6,7 +6,7 @@
 /*   By: hrinka <hrinka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 19:51:53 by hrinka            #+#    #+#             */
-/*   Updated: 2024/06/18 22:52:41 by hrinka           ###   ########.fr       */
+/*   Updated: 2024/06/18 22:57:48 by hrinka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	duplicate_player(t_cub3d *data)
 				v++;
 				if (v > 1)
 				{
-					ft_printf("Please provide a player position \
+					printf("Please provide a player position \
 						in the map (NO DUPLICATES)\n");
 					exit(1);
 				}
