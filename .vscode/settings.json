@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"libft.h": "c",
-		"printf.h": "c",
-		"stddef.h": "c",
-		"stdlib.h": "c",
-		"cub3d.h": "c"
-	}
-}
